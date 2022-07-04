@@ -1,9 +1,13 @@
 package com.example.unilevertask.di;
 
-import dagger.Module;
+import javax.inject.Singleton;
 
-@Module
+import dagger.Module;
+import dagger.hilt.InstallIn;
+
+/*@Module
+@InstallIn(Singleton.class)
 public class DataBaseModule {
 
 
-}
+}*/

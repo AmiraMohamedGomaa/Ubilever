@@ -7,6 +7,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class CustomerDatabase extends SQLiteOpenHelper {
+    private static CustomerDatabase databaseInstance = null;
+    private Context context;
+
+
+    public static CustomerDatabase getDatabaseInstance(Context cont) {
+
+        if(databaseInstance==null){
+            databaseInstance=new CustomerDatabase(cont.getApplicationContext());
+        }
+        return databaseInstance;
+    }
+
     public CustomerDatabase(@Nullable Context context) {
         super(context, "customer_dp", null, 1);
     }
