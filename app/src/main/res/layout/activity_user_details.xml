@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:layout_margin="10dp"
+    tools:context=".view.UserDetailsActivity">
+
+    <TextView
+        android:id="@+id/user_detail_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name: amira"
+        android:layout_margin="2dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/user_detail_code_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Code: 1234"
+        android:layout_margin="2dp"
+        android:layout_below="@+id/user_detail_name_tv"
+        android:textColor="#AEAEAE"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/user_detail_mobile_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mobile:01002055425"
+        android:layout_margin="2dp"
+        android:textColor="#AEAEAE"
+        android:textSize="16sp"
+        android:layout_below="@+id/user_detail_code_tv"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/user_detail_address_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address: Cairo"
+        android:layout_margin="2dp"
+        android:layout_below="@+id/user_detail_mobile_tv"
+        android:textColor="#AEAEAE"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/location_link_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/teal_700"
+        android:layout_below="@+id/user_detail_address_tv"
+        android:layout_centerHorizontal="true"
+        android:text="Location Link"/>
+
+</RelativeLayout>
