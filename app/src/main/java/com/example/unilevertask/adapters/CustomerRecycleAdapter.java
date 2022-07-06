@@ -1,5 +1,6 @@
 package com.example.unilevertask.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.unilevertask.databinding.CustomerRecycleItemBinding;
@@ -14,12 +16,13 @@ import com.example.unilevertask.model.CustomerItem;
 import com.example.unilevertask.presenter.ItemClickListner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerRecycleAdapter extends RecyclerView.Adapter<CustomerRecycleAdapter.CustomerViewHolder> {
  ItemClickListner itemClickListner;
- ArrayList<CustomerItem>customerItems;
+ LiveData<List<CustomerItem>> customerItems;
 
-    public CustomerRecycleAdapter(ItemClickListner itemClickListner, ArrayList<CustomerItem> customerItems) {
+    public CustomerRecycleAdapter(ItemClickListner itemClickListner, LiveData<List<CustomerItem>> customerItems) {
         this.itemClickListner = itemClickListner;
         this.customerItems = customerItems;
     }
@@ -31,9 +34,10 @@ public class CustomerRecycleAdapter extends RecyclerView.Adapter<CustomerRecycle
                 parent, false));
     }
 
+    @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull CustomerViewHolder holder, int position) {
-           CustomerItem customerItem=customerItems.get(position);
+           CustomerItem customerItem=customerItems.getValue().get(position);
            holder.customerRecycleItemBinding.customerCodeTv.setText(String.valueOf(customerItem.getCode()));
            holder.customerRecycleItemBinding.customerNameTv.setText(customerItem.getName());
            holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +50,7 @@ public class CustomerRecycleAdapter extends RecyclerView.Adapter<CustomerRecycle
 
     @Override
     public int getItemCount() {
-        return customerItems.size();
+        return customerItems.getValue().size();
     }
 
     public class CustomerViewHolder extends RecyclerView.ViewHolder {

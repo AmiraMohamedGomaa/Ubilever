@@ -3,14 +3,16 @@ package com.example.unilevertask.presenter;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.unilevertask.model.CustomerDatabase;
 import com.example.unilevertask.model.CustomerItem;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface MainActivityContract {
     interface View{
-        ArrayList<CustomerItem>displayCustomers();
+        LiveData<List<CustomerItem>> displayCustomers();
     }
 
     interface Presenter{
